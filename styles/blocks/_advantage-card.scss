@@ -1,0 +1,59 @@
+@use '../helpers' as *;
+
+.advantages-card {
+	display: grid;
+	row-gap: 30px;
+
+	@include laptop {
+		row-gap: 20px;
+	}
+
+	@include mobile {
+		row-gap: 14px;
+	}
+
+	&__image {
+		@include laptop {
+			width: 40px;
+		}
+
+		@include mobile {
+			width: 30px;
+		}
+	}
+
+	&__link {
+		--circleSize: 52px;
+		--circleMarginLeft: 20px;
+
+		position: relative;
+		display: grid;
+		row-gap: 4px;
+		padding-right: calc(var(--circleSize) + var(--circleMarginLeft));
+
+		@include laptop {
+			--circleSize: 44px;
+			--circleMarginLeft: 14px;
+			row-gap: 2px;
+		}
+
+		@include mobile {
+			--circleSize: 40px;
+		}
+
+		&::after {
+			@include square(var(--circleSize));
+			@include abs-center-y;
+
+			content: '';
+			right: 0;
+			background: url('../../images/icons/arrow-top-right_black.svg') center no-repeat var(--color-accent);
+			border-radius: 50%;
+		}
+	}
+
+	&__details {
+		@include fluid-text(20, 14);
+		font-family: var(--font-family-accent);
+	}
+}

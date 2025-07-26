@@ -1,0 +1,115 @@
+@use '../helpers' as *;
+
+.header{
+	position: sticky;
+	z-index: 100;
+	top: 0;
+
+	animation-name: scrolling-header;
+	animation-timeline: scroll();
+	animation-range: 100px 200px;
+	animation-fill-mode: both;
+
+	@keyframes scrolling-header {
+		to {
+			box-shadow: 0 0 16px var(--color-grey-50);
+		}
+	}
+
+	&__promo{
+		padding-block: 20px;
+		text-align: center;
+		border-bottom: var(--border);
+		background-color: var(--color-dark);
+
+		@include laptop{
+			padding-block: 14px;
+		}
+	}
+
+	&__body{
+		padding-block: 24px;
+		background-color: var(--color-dark-10);
+		&-inner{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		@include tablet {
+			padding-block: 20px;
+		}
+
+		@include mobile {
+			padding-block: 20px;
+		}
+	}
+
+	&__overlay{
+		@include mobile-above{
+			display: contents;
+		}
+
+		@include mobile {
+			position: fixed;
+			inset: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			row-gap: 35px;
+			background-color: var(--color-dark-10);
+			padding: 16px;
+			transition-duration: var(--transition-duration);
+
+			&:not(.is-active) {
+				@include hide;
+
+				translate: 100%;
+			}
+		}
+	}
+
+	&__menu{
+		overflow: auto;
+
+		&-list{
+			display: flex;
+			align-items: center;
+			column-gap: 16px;
+
+			@include laptop {
+				column-gap: 6px;
+			}
+
+			@include mobile {
+				flex-direction: column;
+				row-gap: 16px;
+			}
+		}
+
+		&-link{
+			padding: 14px 24px;
+
+			@include laptop {
+				padding: 10px 18px;
+			}
+			
+			&.is-active{
+				font-weight: 500;
+				color: #fff;
+				background-color: var(--color-dark);
+				border: var(--border);
+				border-radius: 10px;
+				pointer-events: none;
+			}
+		}
+	}
+
+	&__contact-button {
+		@include mobile {
+			width: 100%;
+			max-width: 300px;
+			align-self: center;
+		}
+	}
+}

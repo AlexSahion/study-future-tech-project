@@ -1,0 +1,28 @@
+@use '../helpers' as *;
+
+.resources-preview {
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+	align-items: start;
+	justify-content: end;
+
+	@include laptop {
+		row-gap: 20px;
+	}
+
+	&__body {
+		display: grid;
+		row-gap: 14px;
+
+		@include laptop {
+			row-gap: 6px;
+		}
+	}
+
+	&__button {
+		@include mobile-s {
+			width: 100%;
+		}
+	}
+}

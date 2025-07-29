@@ -1157,6 +1157,7 @@ a[class] {
   justify-content: start;
   row-gap: clamp(0.25rem, -0.0723140496rem + 1.3223140496vw, 1.25rem);
 }
+
 .header,
 main > *:not(:last-child),
 footer {

@@ -1,0 +1,58 @@
+@use '../helpers' as *;
+
+.blog-actions {
+
+	&__list {
+		display: flex;
+		column-gap: 10px;
+
+		@include laptop {
+			column-gap: 8px;
+		}
+	}
+	
+	&__button {
+		font-family: var(--font-family-accent);
+		padding: 8px 16px;
+		font-size: 18px;
+		display: inline-flex;
+		column-gap: 4px;
+		align-items: center;
+		background-color: var(--color-dark-10);
+		border: var(--border);
+		border-radius: 100px;
+		color: var(--color-grey-60);
+
+		@include laptop {
+			padding: 6px 12px;
+			column-gap: 2px;
+			font-size: 14px;
+		}
+
+		&.is-active {
+			svg * {
+				fill: var(--color-red);
+				stroke: var(--color-red);
+			}
+		}
+	}
+
+	&__icon-wrapper {
+		--size: 24px;
+		display: flex;
+
+		@include square(var(--size));
+
+		@include laptop {
+			--size: 20px;
+		};
+
+		svg {
+			height: 100%;
+
+			* {
+				fill: transparent;
+			}
+		}
+	}
+}
